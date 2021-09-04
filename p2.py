@@ -13,8 +13,9 @@ def sumaTodos(limitTo,f):
 	for i in range(limitTo+1):
 		resultado += f(i)
 	return resultado
-
-print(sumaTodos(3, cuadrado))
-print(sumaTodos(100, int))
-print(sumaTodos(100, normal))
-print(sumaTodos(2, doble))
+	
+if __name__ == "__main__":
+	print(sumaTodos(3, cuadrado))
+	print(sumaTodos(100, int))
+	print(sumaTodos(100, normal))
+	print(sumaTodos(2, doble))
