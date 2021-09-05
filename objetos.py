@@ -18,13 +18,41 @@ class Perro():
 		else:
 			print("%s: Woof" % self.nombre)
 
-pix = Perro("Pix", 5.4, 8)
-pix.peso = 5.4
 
-manolo = Perro("Manolo", 12, 3)
-pix.ladrar()
-manolo.ladrar()
+# La herencia se define poniendo entre () la clase padre
+class PerroAsistencia(Perro):
+	
+	def __init__(self, nombre,edad,peso,amo):
+		Perro.__init__(self, nombre, peso, edad)
+		self.amo = amo
+		self.__trabajando = False
+		
+	def __str__(self):
+		return "Perro de asistencia de %s" % self.amo
+	
+	def pasear(self):
+		print("%s: Ayudo a %s a pasear" % (self.nombre, self.amo))
+		
+	def ladrar(self):
+		if self.trabajando:
+			print("wif")
+		else:
+			Perro.ladrar(self)
 
-pix.nombre="PIX"
+	def trabajando(self, valor=None):
+		if valor==None:
+			return self.__trabajando
+		else:
+			self.__trabajando = valor
 
 
+
+bryan = PerroAsistencia("Bryan",10,3,"Peter Griffin")
+print(bryan.amo)
+bryan.ladrar()
+
+
+bryan.pasear()
+bryan.ladrar()
+bryan.pasear()
+bryan.ladrar()
